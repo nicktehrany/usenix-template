@@ -1,0 +1,5 @@
+*.tex.bak
+/main.pdf
+/main.synctex.gz
+comment.cut
+*.html
