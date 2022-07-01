@@ -30,17 +30,17 @@ proposal: clean
 	${LATEX} ${PROPOSAL}.tex
 
 view: all
-	xdg-open $(MAINDOC).pdf
+	xdg-open ${MAINDOC}.pdf
 
 # Requires rebiber to be installed: https://github.com/yuchenlin/rebiber
 rebib:
-	mv $(MAINBIB).bib $(MAINBIB).bib.bak
-	rebiber -i $(MAINBIB).bib.bak -o $(MAINBIB).bib
+	mv ${MAINBIB}.bib ${MAINBIB}.bib.bak
+	rebiber -i ${MAINBIB}.bib.bak -o ${MAINBIB}.bib
 
 # Lint for spelling + grammar
 # Requires textidote to be installed: https://github.com/sylvainhalle/textidote
 lint:
-	textidote --check en --output html $(MAINDOC).tex > report.html || echo ""
+	textidote --check en --output html ${MAINDOC}.tex > report.html || echo ""
 
 spell: *.tex
 	@for file in $?; do aspell --lang=en_US --mode=tex -c $$file; done
